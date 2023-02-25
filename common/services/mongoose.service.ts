@@ -18,6 +18,7 @@ class MongooseService {
     }
     connectWithRetry = () => {
         log('Attempting MongoDB connection (will retry if needed)');
+        mongoose.set("strictQuery", true);
         mongoose
             .connect('mongodb://192.168.101.36:27017/api-db', this.mongooseOptions)
             .then(() => {
